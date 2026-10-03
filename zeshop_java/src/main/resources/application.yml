@@ -1,0 +1,36 @@
+server:
+  port: ${SHOP_JAVA_PORT:8080}
+spring:
+  application:
+    name: shop-server-java
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  datasource:
+    url: ${SHOP_JAVA_DATABASE_URL:jdbc:postgresql://127.0.0.1:5433/shop_mvp}
+    username: ${SHOP_JAVA_DATABASE_USER:shop_admin}
+    password: ${SHOP_JAVA_DATABASE_PASSWORD:change-me}
+  ai:
+    openai:
+      base-url: ${MAIN_MODEL_BASE_URL:https://main-provider.example/v1}
+      api-key: ${MAIN_MODEL_API_KEY:unset}
+      chat:
+        options:
+          model: ${MAIN_MODEL:main-model}
+      embedding:
+        options:
+          model: ${EMBEDDING_MODEL:text-embedding-3-small}
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        schema-name: shop_java
+        table-name: vector_store
+        dimensions: 1536
+shop:
+  store-id: ${SHOP_STORE_ID:demo-store}
+  cors-origins: ${SHOP_CORS_ORIGINS:http://localhost:5175,http://127.0.0.1:5175}
+  seed-demo: ${SHOP_SEED_DEMO:false}
+  jev:
+    base-url: ${JEV_BASE_URL:https://jev-provider.example/v1}
+    api-key: ${JEV_API_KEY:}
+    model: ${JEV_MODEL:jev-fast}

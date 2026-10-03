@@ -1,0 +1,13 @@
+server:
+  port: ${SHOP_JAVA_PORT:8083}
+spring:
+  application:
+    name: shop-server-java-local-demo
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.ai.model.openai.autoconfigure.OpenAiChatAutoConfiguration
+      - org.springframework.ai.model.openai.autoconfigure.OpenAiEmbeddingAutoConfiguration
+      - org.springframework.ai.vectorstore.pgvector.autoconfigure.PgVectorStoreAutoConfiguration
+shop:
+  store-id: demo-store
