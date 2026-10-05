@@ -137,7 +137,3 @@ npm run dev
 - `GET /api/admin/reports/sales`：销售额时序走势与客户消费排行
 
 ---
-
-## 📄 开源许可证
-
-本项目基于 MIT 协议开源，商业或二次开发请保留相关说明。UI 样式及目录结构遵循 [BeikeShop License](zeshop_web/BEIKESHOP-LICENSE.txt)。
